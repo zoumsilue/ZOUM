@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Cartes Scolaires</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Générateur de Cartes Scolaires</h1>
+            <p>Uploadez votre fichier Excel et générez vos cartes automatiquement</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <h3>Déposez votre fichier Excel ici</h3>
+                <p>ou cliquez pour sélectionner</p>
+                <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+            </div>
+
+            <div id="fileInfo" class="file-info" style="display: none;">
+                <p>Fichier sélectionné: <strong id="fileName"></strong></p>
+            </div>
+
+            <button id="generateBtn" class="btn btn-primary" style="display: none;">
+                Générer les cartes
+            </button>
+        </div>
+
+        <div id="loadingSpinner" class="spinner" style="display: none;">
+            <div class="spin"></div>
+            <p>Génération en cours...</p>
+        </div>
+
+        <div id="resultSection" class="result-section" style="display: none;">
+            <div class="success-message">
+                ✅ <span id="successText"></span>
+            </div>
+
+            <div id="cardsContainer" class="cards-grid">
+                <!-- Les cartes générées s'affichent ici -->
+            </div>
+
+            <button id="resetBtn" class="btn btn-secondary">Générer d'autres cartes</button>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
